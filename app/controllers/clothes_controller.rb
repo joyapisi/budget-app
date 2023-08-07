@@ -1,10 +1,11 @@
-class clothesController < ApplicationController
+class ClothesController < ApplicationController
   before_action :set_cloth, only: %i[ show edit update destroy ]
 
   # GET /clothes or /clothes.json
   def index
-    @clothes = Cloth.all
-  end
+    @user = current_user
+    @clothes = Cloth.includes(:user).where(user_id: params[:user_id])
+end
 
   # GET /clothes/1 or /clothes/1.json
   def show
@@ -22,10 +23,12 @@ class clothesController < ApplicationController
   # POST /clothes or /clothes.json
   def create
     @cloth = Cloth.new(cloth_params)
+    @user = current_user
+    @cloth.user_id = @user.id
 
     respond_to do |format|
       if @cloth.save
-        format.html { redirect_to cloth_url(@cloth), notice: "cloth was successfully created." }
+        format.html { redirect_to user_cloth_url(@cloth), notice: "cloth was successfully created." }
         format.json { render :show, status: :created, location: @cloth }
       else
         format.html { render :new, status: :unprocessable_cloth }
