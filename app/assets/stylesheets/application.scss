@@ -14,55 +14,53 @@
  *= require_self
  */
 
- $black: #000;
- $grey : #dfdddd;
- $dark-grey: #434b54;
- $white: #fff;
- $blue: #3778c2;
+$black: #000;
+$grey : #dfdddd;
+$dark-grey: #434b54;
+$white: #fff;
+$blue: #3778c2;
 
- body {
+body {
   padding: 10px 20px;
- }
-
-h2 {
-    padding: 15px;
-    background-color: $blue;
 }
 
- form {
+h2 {
+  padding: 15px;
+  background-color: $blue;
+}
+
+form {
   display: flex;
   flex-direction: column;
   gap: 5px;
-//   width: 100%;
- }
+  //   width: 100%;
+}
 
 //  .field {
 //    border: none;
 //  }
 
- input {
-   display: flex;
-   border: none;
-   border-bottom: 1px solid $grey;
-   width: 100%;
-   padding: 15px;
- }
+input {
+  display: flex;
+  border: none;
+  border-bottom: 1px solid $grey;
+  width: 100%;
+  padding: 15px;
+}
 
- input[type="text"] {
+input[type="text"] {
   color: $black;
   padding: 5px;
   background-color: #f2f2f2;
-//   border-bottom: 2px solid $grey;
- } 
+  //   border-bottom: 2px solid $grey;
+}
 
- ::placeholder {
-    color: gray;
-  }
+::placeholder {
+  color: gray;
+}
 
- .actions {
-    width: 100%;
-    padding: 5px;
-    text-align: center;
- }
-
- 
+.actions {
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+}

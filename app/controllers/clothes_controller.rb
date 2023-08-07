@@ -1,15 +1,14 @@
 class ClothesController < ApplicationController
-  before_action :set_cloth, only: %i[ show edit update destroy ]
+  before_action :set_cloth, only: %i[show edit update destroy]
 
   # GET /clothes or /clothes.json
   def index
     @user = current_user
     @clothes = Cloth.includes(:user).where(user_id: params[:user_id])
-end
+  end
 
   # GET /clothes/1 or /clothes/1.json
-  def show
-  end
+  def show; end
 
   # GET /clothes/new
   def new
@@ -17,8 +16,7 @@ end
   end
 
   # GET /clothes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /clothes or /clothes.json
   def create
@@ -28,7 +26,7 @@ end
 
     respond_to do |format|
       if @cloth.save
-        format.html { redirect_to user_cloth_url(@cloth), notice: "cloth was successfully created." }
+        format.html { redirect_to user_cloth_url(@cloth), notice: 'cloth was successfully created.' }
         format.json { render :show, status: :created, location: @cloth }
       else
         format.html { render :new, status: :unprocessable_cloth }
@@ -41,7 +39,7 @@ end
   def update
     respond_to do |format|
       if @cloth.update(cloth_params)
-        format.html { redirect_to cloth_url(@cloth), notice: "cloth was successfully updated." }
+        format.html { redirect_to cloth_url(@cloth), notice: 'cloth was successfully updated.' }
         format.json { render :show, status: :ok, location: @cloth }
       else
         format.html { render :edit, status: :unprocessable_cloth }
@@ -55,19 +53,20 @@ end
     @cloth.destroy
 
     respond_to do |format|
-      format.html { redirect_to clothes_url, notice: "cloth was successfully destroyed." }
+      format.html { redirect_to clothes_url, notice: 'cloth was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cloth
-      @cloth = Cloth.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def cloth_params
-      params.require(:cloth).permit(:name, :user_id, :group_id, :author_id, :amount)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cloth
+    @cloth = Cloth.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def cloth_params
+    params.require(:cloth).permit(:name, :user_id, :group_id, :author_id, :amount)
+  end
 end
