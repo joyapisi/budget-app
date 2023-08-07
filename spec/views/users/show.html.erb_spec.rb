@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "users/show", type: :view do
   before(:each) do
-    assign(:entity, Entity.create!(
+    assign(:cloth, Cloth.create!(
       name: "Name",
       user_id: 2,
       group_id: 3,

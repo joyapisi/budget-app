@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :entity do
+  factory :cloth do
     name { "MyString" }
     user_id { 1 }
     group_id { 1 }

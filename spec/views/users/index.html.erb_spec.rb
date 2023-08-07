@@ -10,7 +10,7 @@ RSpec.describe "users/index", type: :view do
         author_id: 4,
         amount: "9.99"
       ),
-      Entity.create!(
+      Cloth.create!(
         name: "Name",
         user_id: 2,
         group_id: 3,

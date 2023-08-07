@@ -28,8 +28,8 @@ class UserController < ApplicationController
           format.html { redirect_to user_url(@user), notice: "user was successfully created." }
           format.json { render :show, status: :created, location: @user }
         else
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @user.errors, status: :unprocessable_entity }
+          format.html { render :new, status: :unprocessable_cloth }
+          format.json { render json: @user.errors, status: :unprocessable_cloth }
         end
       end
     end
@@ -41,8 +41,8 @@ class UserController < ApplicationController
           format.html { redirect_to user_url(@user), notice: "user was successfully updated." }
           format.json { render :show, status: :ok, location: @user }
         else
-          format.html { render :edit, status: :unprocessable_entity }
-          format.json { render json: @user.errors, status: :unprocessable_entity }
+          format.html { render :edit, status: :unprocessable_cloth }
+          format.json { render json: @user.errors, status: :unprocessable_cloth }
         end
       end
     end

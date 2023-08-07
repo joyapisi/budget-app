@@ -12,10 +12,10 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/entities", type: :request do
+RSpec.describe "/clothes", type: :request do
   
   # This should return the minimal set of attributes required to create a valid
-  # Entity. As you add validations to Entity, be sure to
+  # Cloth. As you add validations to Cloth, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -27,60 +27,60 @@ RSpec.describe "/entities", type: :request do
 
   describe "GET /index" do
     it "renders a successful response" do
-      Entity.create! valid_attributes
-      get entities_url
+      Cloth.create! valid_attributes
+      get clothes_url
       expect(response).to be_successful
     end
   end
 
   describe "GET /show" do
     it "renders a successful response" do
-      entity = Entity.create! valid_attributes
-      get entity_url(entity)
+      cloth = Cloth.create! valid_attributes
+      get cloth_url(cloth)
       expect(response).to be_successful
     end
   end
 
   describe "GET /new" do
     it "renders a successful response" do
-      get new_entity_url
+      get new_cloth_url
       expect(response).to be_successful
     end
   end
 
   describe "GET /edit" do
     it "renders a successful response" do
-      entity = Entity.create! valid_attributes
-      get edit_entity_url(entity)
+      cloth = Cloth.create! valid_attributes
+      get edit_cloth_url(cloth)
       expect(response).to be_successful
     end
   end
 
   describe "POST /create" do
     context "with valid parameters" do
-      it "creates a new Entity" do
+      it "creates a new cloth" do
         expect {
-          post entities_url, params: { entity: valid_attributes }
-        }.to change(Entity, :count).by(1)
+          post clothes_url, params: { cloth: valid_attributes }
+        }.to change(cloth, :count).by(1)
       end
 
-      it "redirects to the created entity" do
-        post entities_url, params: { entity: valid_attributes }
-        expect(response).to redirect_to(entity_url(Entity.last))
+      it "redirects to the created cloth" do
+        post clothes_url, params: { cloth: valid_attributes }
+        expect(response).to redirect_to(cloth_url(Cloth.last))
       end
     end
 
     context "with invalid parameters" do
-      it "does not create a new Entity" do
+      it "does not create a new cloth" do
         expect {
-          post entities_url, params: { entity: invalid_attributes }
-        }.to change(Entity, :count).by(0)
+          post clothes_url, params: { cloth: invalid_attributes }
+        }.to change(Cloth, :count).by(0)
       end
 
     
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
-        post entities_url, params: { entity: invalid_attributes }
-        expect(response).to have_http_status(:unprocessable_entity)
+        post clothes_url, params: { cloth: invalid_attributes }
+        expect(response).to have_http_status(:unprocessable_cloth)
       end
     
     end
@@ -92,44 +92,44 @@ RSpec.describe "/entities", type: :request do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested entity" do
-        entity = Entity.create! valid_attributes
-        patch entity_url(entity), params: { entity: new_attributes }
-        entity.reload
+      it "updates the requested cloth" do
+        cloth = Cloth.create! valid_attributes
+        patch cloth_url(cloth), params: { cloth: new_attributes }
+        cloth.reload
         skip("Add assertions for updated state")
       end
 
-      it "redirects to the entity" do
-        entity = Entity.create! valid_attributes
-        patch entity_url(entity), params: { entity: new_attributes }
-        entity.reload
-        expect(response).to redirect_to(entity_url(entity))
+      it "redirects to the cloth" do
+        cloth = Cloth.create! valid_attributes
+        patch cloth_url(cloth), params: { cloth: new_attributes }
+        cloth.reload
+        expect(response).to redirect_to(cloth_url(cloth))
       end
     end
 
     context "with invalid parameters" do
     
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
-        entity = Entity.create! valid_attributes
-        patch entity_url(entity), params: { entity: invalid_attributes }
-        expect(response).to have_http_status(:unprocessable_entity)
+        cloth = Cloth.create! valid_attributes
+        patch cloth_url(cloth), params: { cloth: invalid_attributes }
+        expect(response).to have_http_status(:unprocessable_cloth)
       end
     
     end
   end
 
   describe "DELETE /destroy" do
-    it "destroys the requested entity" do
-      entity = Entity.create! valid_attributes
+    it "destroys the requested cloth" do
+      cloth = Cloth.create! valid_attributes
       expect {
-        delete entity_url(entity)
-      }.to change(Entity, :count).by(-1)
+        delete cloth_url(cloth)
+      }.to change(Cloth, :count).by(-1)
     end
 
-    it "redirects to the entities list" do
-      entity = Entity.create! valid_attributes
-      delete entity_url(entity)
-      expect(response).to redirect_to(entities_url)
+    it "redirects to the clothes list" do
+      cloth = Cloth.create! valid_attributes
+      delete cloth_url(cloth)
+      expect(response).to redirect_to(clothes_url)
     end
   end
 end

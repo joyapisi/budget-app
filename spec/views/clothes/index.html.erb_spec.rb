@@ -1,16 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe "entities/index", type: :view do
+RSpec.describe "clothes/index", type: :view do
   before(:each) do
-    assign(:entities, [
-      Entity.create!(
+    assign(:clothes, [
+      Cloth.create!(
         name: "Name",
         user_id: 2,
         group_id: 3,
         author_id: 4,
         amount: "9.99"
       ),
-      Entity.create!(
+      Cloth.create!(
         name: "Name",
         user_id: 2,
         group_id: 3,
@@ -20,7 +20,7 @@ RSpec.describe "entities/index", type: :view do
     ])
   end
 
-  it "renders a list of entities" do
+  it "renders a list of clothes" do
     render
     cell_selector = Rails::VERSION::STRING >= '7' ? 'div>p' : 'tr>td'
     assert_select cell_selector, text: Regexp.new("Name".to_s), count: 2
