@@ -19,28 +19,41 @@ $grey : #dfdddd;
 $dark-grey: #434b54;
 $white: #fff;
 $blue: #3778c2;
+$green: #5fb523;
 
 body {
   padding: 10px 20px;
 }
 
-h2 {
-  padding: 15px;
+// navigation
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
   background-color: $blue;
+  padding: 5px 10px;
+  margin: -10px -20px;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+  }
+
+  li {
+    margin: 0;
+  }
 }
 
+  // Forms
 form {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  //   width: 100%;
 }
 
-//  .field {
-//    border: none;
-//  }
-
-input {
+input, .input {
   display: flex;
   border: none;
   border-bottom: 1px solid $grey;
@@ -52,15 +65,23 @@ input[type="text"] {
   color: $black;
   padding: 5px;
   background-color: #f2f2f2;
-  //   border-bottom: 2px solid $grey;
 }
 
 ::placeholder {
   color: gray;
 }
 
-.actions {
+.actions, .form-buttons {
   width: 100%;
   padding: 5px;
   text-align: center;
+}
+
+.actions :hover, .form-buttons :hover {
+  background-color: $blue;
+}
+
+// Footer
+footer {
+  margin: 20px 0;
 }
