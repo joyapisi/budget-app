@@ -12,11 +12,19 @@
 
   <body>
     <% if user_signed_in? %>
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Login', new_user_session_path %>
-    <% end %>
-
+      <nav class="blue-navigation">
+        <ul>
+          <li><%= link_to '←', groups_path %></li>
+          <li><%= link_to @page_name,  request.path %></li>
+        </ul>
+      </nav>
+      
+      <footer>
+        <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+        <% else %>
+        <%= link_to 'Login', new_user_session_path %>
+        <% end %>
+      </footer>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

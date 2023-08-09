@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  root to: "users#show"
+  root to: "clothes#index"
   
   devise_for :users
-  resources :groups
-  resources :clothes
   resources :users
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
+    resources :groups, only: [:index, :show, :new, :create, :destroy] do
+      resources :clothes, only: [:index, :show, :new, :create, :destroy]
+    end  
 
 end

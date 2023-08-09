@@ -1,17 +1,22 @@
-<div id="<%= dom_id group %>">
-  <p>
-    <strong>Name:</strong>
-    <%= group.name %>
-  </p>
+<div id="<%= dom_id group %>" class="container">
+  <div class="container-left">
+    <div class="container-left-first">
+      <p>
+        <strong>Icon:</strong>
+        <%= group.icon %>
+      </p>
+    </div>
+    <div class="container-left-second">
+      <p><%= group.name.capitalize %></p>
+      <p><%= group.created_at.strftime('%d/%b/%Y') %> </p>
+    </div>
+  </div>
 
-  <p>
-    <strong>Icon:</strong>
-    <%= group.icon %>
-  </p>
+  <div class="container-right">
 
-  <p>
-    <strong>User:</strong>
-    <%= group.user_id %>
-  </p>
-
+    <p>
+      <strong>Amount:</strong>
+      <%= group.clothes.map { |cloth| cloth.amount }.sum %>
+    </p>
+  </div>
 </div>

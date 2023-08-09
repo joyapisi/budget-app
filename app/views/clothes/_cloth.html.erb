@@ -1,27 +1,13 @@
-<div id="<%= dom_id cloth %>">
-  <p>
-    <strong>Name:</strong>
-    <%= cloth.name %>
-  </p>
+  <div id="<%= dom_id cloth %>" class="container">
+    <div class="container-left">
+      <p>
+        <%= cloth.name %>
+      </p>
 
-  <p>
-    <strong>User:</strong>
-    <%= cloth.user_id %>
-  </p>
-
-  <p>
-    <strong>Group:</strong>
-    <%= cloth.group_id %>
-  </p>
-
-  <p>
-    <strong>Author:</strong>
-    <%= cloth.author_id %>
-  </p>
-
-  <p>
-    <strong>Amount:</strong>
-    <%= cloth.amount %>
-  </p>
-
-</div>
+    </div>
+    <div class="container-right">
+      <p>
+        <%= cloth.amount %>
+      </p>
+    </div>
+  </div>

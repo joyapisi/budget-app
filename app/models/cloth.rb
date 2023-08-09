@@ -1,6 +1,7 @@
-class Clothes < ApplicationRecord
-    belongs_to :user
-    belongs_to :group
+class Cloth < ApplicationRecord
+  belongs_to :user
+  belongs_to :group
 
-    validates :amount, presence: true
+  validates :amount, presence: true
+  validates :group, presence: true
 end
