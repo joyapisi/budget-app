@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :cloth
-  has_many :group
+  has_many :clothes
+  has_many :groups
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
