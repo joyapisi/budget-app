@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @group_cloth %>
+
+<div>
+  <%= link_to "Edit this group cloth", edit_group_cloth_path(@group_cloth) %> |
+  <%= link_to "Back to group clothes", group_clothes_path %>
+
+  <%= button_to "Destroy this group cloth", @group_cloth, method: :delete %>
+</div>
