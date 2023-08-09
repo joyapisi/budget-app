@@ -5,8 +5,7 @@
 <div id="clothes">
   <% @clothes.each do |cloth| %>
     <%= render cloth %>
-
   <% end %>
 </div>
 
-<%= link_to "New cloth", new_group_cloth_path %>
+<%= link_to "New cloth", new_group_cloth_path(current_user) %>
