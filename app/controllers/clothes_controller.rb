@@ -1,4 +1,5 @@
 class ClothesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_cloth, only: %i[show edit update destroy]
 
   # GET /clothes or /clothes.json
@@ -12,8 +13,12 @@ class ClothesController < ApplicationController
 
   # GET /clothes/new
   def new
-    @cloth = Cloth.new
-    @groups = Group.all
+    if current_user.id.to_i == Group.find(params[:group_id]).user_id.to_i
+      @cloth = Cloth.new
+      @groups = Group.where(user_id: current_user.id)
+    else
+      redirect_to '/'
+    end
   end
 
   # GET /clothes/1/edit
@@ -27,14 +32,15 @@ class ClothesController < ApplicationController
     @cloth.group_id = params[:group_id]
 
 
-    respond_to do |format|
-      if @cloth.save
-        format.html { redirect_to groups_path, notice: 'cloth was successfully created.' }
-        format.json { render :show, status: :created, location: @cloth }
+    if params[:cloth][:selected_ids]
+      if save_and_group_cloth
+        redirect_to group_path(params[:group_id])
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @cloth.errors, status: :unprocessable_entity }
       end
+    else
+      redirect_to group_clothes_path(params[:group_id]), alert: 'please select at least one group.'
     end
   end
 
@@ -64,12 +70,35 @@ class ClothesController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
+  def save_and_group_cloth
+    ActiveRecord::Base.transaction do
+      @cloth.save
+      params[:cloth][:selected_ids].each do |id|
+        GroupCloth.create(cloth_id: @cloth.id, group_id: id.to_i)
+      end
+    end
+  rescue ActiveRecord::RecordInvalid
+    false
+  end
+  
   def set_cloth
     @cloth = Cloth.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
   def cloth_params
-    params.require(:cloth).permit(:name, :user_id, :group_id, :author_id, :amount)
+    params.require(:cloth).permit(:name, :amount)
   end
+
+  def selection_params
+    params.require(:cloth).permit(:selected_ids)
+  end
+
+  # def authenticate_user!
+  #   if user_signed_in?
+  #     super
+  #   else
+  #     redirect_to root_path
+  #   end
+  # end
 end

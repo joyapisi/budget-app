@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :group_clothes
-  root to: "clothes#index"
+  root to: "groups#index"
   
   devise_for :users
   resources :users

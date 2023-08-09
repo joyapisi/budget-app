@@ -1,10 +1,7 @@
 <div id="<%= dom_id group %>" class="container">
   <div class="container-left">
     <div class="container-left-first">
-      <p>
-        <strong>Icon:</strong>
-        <%= group.icon %>
-      </p>
+      <img class="icon" src=<%= group.icon %> alt=<%= group.name %> >
     </div>
     <div class="container-left-second">
       <p><%= group.name.capitalize %></p>

@@ -13,18 +13,20 @@
   <body>
     <% if user_signed_in? %>
       <nav class="blue-navigation">
-        <ul>
-          <li><%= link_to '←', groups_path %></li>
-          <li><%= link_to @page_name,  request.path %></li>
-        </ul>
-      </nav>
-      
-      <footer>
-        <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+        
+        <%= button_to '←', groups_path, class: 'nav-buttons first'%>
+        
+        <h1><%= link_to @page_name, request.path.split('/').reject(&:empty?).last %></h1>
+        
+        <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-buttons second' %>
         <% else %>
         <%= link_to 'Login', new_user_session_path %>
         <% end %>
-      </footer>
+      </nav>
+      
+
+        
+   
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

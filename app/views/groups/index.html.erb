@@ -6,9 +6,9 @@
   <% @groups.each do |group| %>
     <%= render group %>
     <p>
-      <%= link_to "Show this group", group %>
+      <%= link_to "Show this group", group, class:"inner-buttons" %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New group", new_group_path %>
+<%= link_to "New group", new_group_path, class:"new-buttons"%>

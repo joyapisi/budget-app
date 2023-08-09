@@ -4,11 +4,17 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
-    @groups = Group.all
+    @groups = Group.where(user_id: current_user.id).order('created_at DESC')
   end
 
   # GET /groups/1 or /groups/1.json
-  def show; end
+  def show
+    if current_user.id.to_i == Group.find(params[:id]).user_id.to_i
+      @group = Group.find(params[:id])
+    else
+      redirect_to '/'
+    end
+  end
 
   # GET /groups/new
   def new
@@ -25,7 +31,7 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to group_url(@group), notice: 'Group was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Group was successfully created.' }
         format.json { render :show, status: :created, location: @group }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -66,6 +72,14 @@ class GroupsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def group_params
-    params.require(:group).permit(:name, :icon, :user_id)
+    params.require(:group).permit(:name, :icon)
   end
+
+  # def authenticate_user!
+  #   if user_signed_in?
+  #     super
+  #   else
+  #     redirect_to root_path
+  #   end
+  # end
 end

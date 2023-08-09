@@ -22,7 +22,7 @@ $white: #fff;
 $blue: #3778c2;
 $green: #5fb523;
 $small-font: 8px;
-$pri-font: 14px;
+$mid-font: 11px;
 
 body {
   padding: 10px 20px;
@@ -32,20 +32,44 @@ body {
 nav {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-wrap: nowrap;
   background-color: $blue;
   padding: 5px 10px;
   margin: -10px -20px;
 
-  ul {
-    display: flex;
-    justify-content: space-between;
-    list-style-type: none;
+  h1 a {
+    text-decoration: none;
+    color: $white;
   }
+  // ul {
+  //   display: flex;
+  //   justify-content: flex-start;
+  //   list-style-type: none;
+  // }
 
   li {
     margin: 0;
+    text-decoration: none;
+  }
+
+  .nav-buttons {
+    background-color: transparent;
+    color: $white;
+  }
+
+  .first {
+    border-radius: 50%;
+    border: 1px solid $white;
+    height: 30px;
+    width: 30px;
+  }
+
+  .second {
+    padding: 5px 10px;
+    font-size: $mid-font;
+    border: none;
+    border-bottom: 1px solid $white;
   }
 }
 
@@ -124,4 +148,24 @@ justify-content: flex-start;
 #date {
   font-size: $small-font;
   color: $grey;
+}
+
+.inner-buttons {
+  display: flex;
+  justify-content: center;
+  font-size: $mid-font;
+  color: $grey;
+  text-decoration: none;
+}
+
+.new-buttons{
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  padding: 10px;
+  width: 93%;
+  color: $white;
+  background-color: $green;
+  border-radius: 0.15rem;
+  text-decoration: none;
 }
