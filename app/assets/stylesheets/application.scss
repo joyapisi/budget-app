@@ -15,11 +15,14 @@
  */
 
 $black: #000;
-$grey : #dfdddd;
+$light-grey : #dfdddd;
+$grey:  #65707d;
 $dark-grey: #434b54;
 $white: #fff;
 $blue: #3778c2;
 $green: #5fb523;
+$small-font: 8px;
+$pri-font: 14px;
 
 body {
   padding: 10px 20px;
@@ -57,7 +60,7 @@ input,
 .input {
   display: flex;
   border: none;
-  border-bottom: 1px solid $grey;
+  border-bottom: 1px solid $light-grey;
   width: 100%;
   padding: 15px;
 }
@@ -92,14 +95,33 @@ footer {
 // Containers
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 75% 25%;
   box-shadow: 0 0 5px $black;
-  padding: 10px 20px;
+  padding: 5px 10px;
   margin-bottom: 15px;
 }
 
 .container-left {
   display: grid;
-  grid-template-columns: 15% 80%;
+  grid-template-columns: 40% 50%;
   gap: 5px;
+}
+
+.container-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.container-left-second {
+display: flex;
+flex-direction: column;
+// align-items: self-end;
+justify-content: flex-start;
+// padding: 10px 0;
+}
+
+#date {
+  font-size: $small-font;
+  color: $grey;
 }

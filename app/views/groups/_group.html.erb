@@ -8,14 +8,13 @@
     </div>
     <div class="container-left-second">
       <p><%= group.name.capitalize %></p>
-      <p><%= group.created_at.strftime('%d/%b/%Y') %> </p>
+      <p id="date"><%= group.created_at.strftime('%d/%b/%Y') %> </p>
     </div>
   </div>
 
   <div class="container-right">
 
     <p>
-      <strong>Amount:</strong>
       <%= group.clothes.map { |cloth| cloth.amount }.sum %>
     </p>
   </div>
