@@ -13,6 +13,7 @@ class ClothesController < ApplicationController
   # GET /clothes/new
   def new
     @cloth = Cloth.new
+    @groups = Group.all
   end
 
   # GET /clothes/1/edit
@@ -31,8 +32,8 @@ class ClothesController < ApplicationController
         format.html { redirect_to groups_path, notice: 'cloth was successfully created.' }
         format.json { render :show, status: :created, location: @cloth }
       else
-        format.html { render :new, status: :unprocessable_cloth }
-        format.json { render json: @cloth.errors, status: :unprocessable_cloth }
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @cloth.errors, status: :unprocessable_entity }
       end
     end
   end
