@@ -25,7 +25,7 @@ class ClothesController < ApplicationController
     @user = current_user
     @cloth.user_id = @user.id
     @cloth.group_id = params[:group_id]
-    
+
 
     respond_to do |format|
       if @cloth.save
