@@ -20,15 +20,10 @@
         
         <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-buttons second' %>
         <% else %>
-        <%= button_to 'Login', new_user_session_path, class: 'nav-buttons second' %>
+        <%= button_to 'Login', new_user_session_path, class: 'nav-buttons second display-none' %>
         <% end %>
       </nav>
       
-
-        
-   
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
