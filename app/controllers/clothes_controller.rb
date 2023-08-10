@@ -14,8 +14,8 @@ class ClothesController < ApplicationController
 
   # GET /clothes/new
   def new
-      @cloth = Cloth.new
-      @groups = Group.where(user_id: current_user.id)
+    @cloth = Cloth.new
+    @groups = Group.where(user_id: current_user.id)
   end
 
   # GET /clothes/1/edit
