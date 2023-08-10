@@ -21,6 +21,17 @@
     <%= form.text_field :group_id %>
   </div>
 
+  <div class="field">
+    <%= form.label :cloth_id, style: "display: block" %>
+    <%= form.collection_select :cloth_id, Cloth.all, :id, :name, prompt: "Select a Cloth" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :group_id, style: "display: block" %>
+    <%= form.collection_select :group_id, Group.all, :id, :name, prompt: "Select a Group" %>
+  </div>
+
+
   <div>
     <%= form.submit %>
   </div>

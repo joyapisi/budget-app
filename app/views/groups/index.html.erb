@@ -4,11 +4,11 @@
 
 <div id="groups">
   <% @groups.each do |group| %>
-    <%= render group %>
-    <p>
-      <%= link_to "Show this group", group, class:"inner-buttons" %>
-    </p>
+    <%= link_to group_path(group), class: "group-link" do %>
+      <%= render group %>
+    <% end %>
   <% end %>
 </div>
+
 
 <%= link_to "New group", new_group_path, class:"new-buttons"%>
