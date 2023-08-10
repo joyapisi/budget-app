@@ -32,13 +32,13 @@ class ClothesController < ApplicationController
     @cloth.group_id = params[:group_id]
 
 
-    if params[:cloth][:selected_ids]
-      if save_and_group_cloth
-        redirect_to group_path(params[:group_id])
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @cloth.errors, status: :unprocessable_entity }
-      end
+    if @cloth.save
+
+        redirect_to group_clothes_path(params[:group_id])
+  
+        # format.html { render :new, status: :unprocessable_entity }
+        # format.json { render json: @cloth.errors, status: :unprocessable_entity }
+      
     else
       redirect_to group_clothes_path(params[:group_id]), alert: 'please select at least one group.'
     end
@@ -69,19 +69,7 @@ class ClothesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
-  def save_and_group_cloth
-    ActiveRecord::Base.transaction do
-      @cloth.save
-      params[:cloth][:selected_ids].each do |id|
-        GroupCloth.create(cloth_id: @cloth.id, group_id: id.to_i)
-      end
-    end
-  rescue ActiveRecord::RecordInvalid
-    false
-  end
-  
-  def set_cloth
+    def set_cloth
     @cloth = Cloth.find(params[:id])
   end
 
@@ -92,13 +80,5 @@ class ClothesController < ApplicationController
 
   def selection_params
     params.require(:cloth).permit(:selected_ids)
-  end
-
-  def authenticate_user!
-    if user_signed_in?
-      super
-    else
-      redirect_to landing_page_path
-    end
   end
 end
