@@ -6,6 +6,7 @@ class ClothesController < ApplicationController
   def index
     @user = current_user
     @clothes = Cloth.where(user_id: current_user.id).order('created_at DESC')
+    @group_id = params[:group_id]
   end
 
   # GET /clothes/1 or /clothes/1.json
@@ -13,12 +14,8 @@ class ClothesController < ApplicationController
 
   # GET /clothes/new
   def new
-    if current_user.id.to_i == Group.find(params[:group_id]).user_id.to_i
       @cloth = Cloth.new
       @groups = Group.where(user_id: current_user.id)
-    else
-      redirect_to '/'
-    end
   end
 
   # GET /clothes/1/edit
@@ -29,18 +26,13 @@ class ClothesController < ApplicationController
     @cloth = Cloth.new(cloth_params)
     @user = current_user
     @cloth.user_id = @user.id
-    @cloth.group_id = params[:group_id]
+    @cloth.group_id = params[:cloth][:group_id]
 
 
     if @cloth.save
-
-      redirect_to group_clothes_path(params[:group_id])
-
-    # format.html { render :new, status: :unprocessable_entity }
-    # format.json { render json: @cloth.errors, status: :unprocessable_entity }
-
+      redirect_to group_clothes_path(@cloth.group_id)
     else
-      redirect_to group_clothes_path(params[:group_id]), alert: 'please select at least one group.'
+      redirect_to group_clothes_path(@cloth.group_id), alert: 'Please select at least one group.'
     end
   end
 
@@ -75,7 +67,7 @@ class ClothesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def cloth_params
-    params.require(:cloth).permit(:name, :amount)
+    params.require(:cloth).permit(:name, :amount, :group_id)
   end
 
   def selection_params
