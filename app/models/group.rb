@@ -1,6 +1,6 @@
 class Group < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, class_name: 'User'
   has_many :clothes
 
-  validates :icon, presence: true, uniqueness: true
+  validates :name, :icon, presence: true
 end

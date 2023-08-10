@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :clothes
-  has_many :groups
+  has_many :clothes, dependent: :destroy, foreign_key: :user_id
+  has_many :groups, dependent: :destroy, foreign_key: :user_id
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

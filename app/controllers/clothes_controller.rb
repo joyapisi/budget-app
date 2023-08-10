@@ -1,10 +1,12 @@
 class ClothesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_cloth, only: %i[show edit update destroy]
 
   # GET /clothes or /clothes.json
   def index
     @user = current_user
-    @clothes = Cloth.where(user_id: current_user.id)
+    @clothes = Cloth.where(user_id: current_user.id).order('created_at DESC')
+    @group_id = params[:group_id]
   end
 
   # GET /clothes/1 or /clothes/1.json
@@ -13,7 +15,7 @@ class ClothesController < ApplicationController
   # GET /clothes/new
   def new
     @cloth = Cloth.new
-    @groups = Group.all
+    @groups = Group.where(user_id: current_user.id)
   end
 
   # GET /clothes/1/edit
@@ -24,17 +26,13 @@ class ClothesController < ApplicationController
     @cloth = Cloth.new(cloth_params)
     @user = current_user
     @cloth.user_id = @user.id
-    @cloth.group_id = params[:group_id]
+    @cloth.group_id = params[:cloth][:group_id]
 
 
-    respond_to do |format|
-      if @cloth.save
-        format.html { redirect_to groups_path, notice: 'cloth was successfully created.' }
-        format.json { render :show, status: :created, location: @cloth }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @cloth.errors, status: :unprocessable_entity }
-      end
+    if @cloth.save
+      redirect_to group_clothes_path(@cloth.group_id)
+    else
+      redirect_to group_clothes_path(@cloth.group_id), alert: 'Please select at least one group.'
     end
   end
 
@@ -63,13 +61,16 @@ class ClothesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_cloth
     @cloth = Cloth.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
   def cloth_params
-    params.require(:cloth).permit(:name, :user_id, :group_id, :author_id, :amount)
+    params.require(:cloth).permit(:name, :amount, :group_id)
+  end
+
+  def selection_params
+    params.require(:cloth).permit(:selected_ids)
   end
 end

@@ -1,11 +1,9 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Clothes</h1>
-
+<br/>
 <div id="clothes">
   <% @clothes.each do |cloth| %>
     <%= render cloth %>
   <% end %>
 </div>
 
-<%= link_to "New cloth", new_group_cloth_path(current_user) %>
+<%= link_to "New cloth", new_group_cloth_path(group_id: @group_id), class: "new-buttons" %>
