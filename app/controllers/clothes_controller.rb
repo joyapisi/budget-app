@@ -5,7 +5,7 @@ class ClothesController < ApplicationController
   # GET /clothes or /clothes.json
   def index
     @user = current_user
-    @clothes = Cloth.where(user_id: current_user.id)
+    @clothes = Cloth.where(user_id: current_user.id).order('created_at DESC')
   end
 
   # GET /clothes/1 or /clothes/1.json
@@ -94,11 +94,11 @@ class ClothesController < ApplicationController
     params.require(:cloth).permit(:selected_ids)
   end
 
-  # def authenticate_user!
-  #   if user_signed_in?
-  #     super
-  #   else
-  #     redirect_to root_path
-  #   end
-  # end
+  def authenticate_user!
+    if user_signed_in?
+      super
+    else
+      redirect_to landing_page_path
+    end
+  end
 end

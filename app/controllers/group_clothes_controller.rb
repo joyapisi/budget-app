@@ -67,4 +67,9 @@ class GroupClothesController < ApplicationController
     def group_cloth_params
       params.require(:group_cloth).permit(:cloth_id, :group_id)
     end
+
+    def update_group_total_amount
+      group.total_amount = group.total_amount + cloth.amount
+      group.save
+    end
 end
