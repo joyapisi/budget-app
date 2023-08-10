@@ -28,7 +28,6 @@ class ClothesController < ApplicationController
     @cloth.user_id = @user.id
     @cloth.group_id = params[:cloth][:group_id]
 
-
     if @cloth.save
       redirect_to group_clothes_path(@cloth.group_id)
     else
