@@ -18,12 +18,14 @@
   <div>
     <%= form.text_field :amount, placeholder: 'Amount', required: true %>
   </div>
-
+  <br/>
+  
   <div class="field">
     <%= form.label :group_id %>
     <%= form.collection_select :group_id, groups, :id, :name, prompt: "Select a Group" %>
   </div>
-
+  <br/>
+  
   <div>
     <%= form.submit %>
   </div>

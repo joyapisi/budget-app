@@ -12,7 +12,7 @@
   <div class="container-right">
 
     <p>
-      <%= group.total_amount %>
+      <%= Cloth.where(group_id:group.id).map {|item| item.amount.to_i}.sum %>
     </p>
   </div>
 </div>
