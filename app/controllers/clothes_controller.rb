@@ -34,11 +34,11 @@ class ClothesController < ApplicationController
 
     if @cloth.save
 
-        redirect_to group_clothes_path(params[:group_id])
-  
-        # format.html { render :new, status: :unprocessable_entity }
-        # format.json { render json: @cloth.errors, status: :unprocessable_entity }
-      
+      redirect_to group_clothes_path(params[:group_id])
+
+    # format.html { render :new, status: :unprocessable_entity }
+    # format.json { render json: @cloth.errors, status: :unprocessable_entity }
+
     else
       redirect_to group_clothes_path(params[:group_id]), alert: 'please select at least one group.'
     end
@@ -69,7 +69,7 @@ class ClothesController < ApplicationController
 
   private
 
-    def set_cloth
+  def set_cloth
     @cloth = Cloth.find(params[:id])
   end
 

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :group_clothes
   root to: "groups#index"
   
   devise_for :users
@@ -9,5 +8,5 @@ Rails.application.routes.draw do
     resources :groups, only: [:index, :show, :new, :create, :destroy] do
       resources :clothes, only: [:index, :show, :new, :create, :destroy]
     end  
-
+    get '/landing_page', to: 'landing_page#index'
 end

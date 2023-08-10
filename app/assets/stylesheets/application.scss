@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- @import url('https://fonts.googleapis.com/css2?family=Figtree&family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree&family=Fjalla+One&display=swap');
 
 $black: #000;
 $light-grey : #dfdddd;
@@ -37,6 +37,38 @@ h2 {
   margin: 0 -30px;
 }
 
+// Forms
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  display: flex;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid $light-grey;
+  width: 100%;
+  padding: 15px 0;
+  color: $black;
+  background-color: transparent;
+}
+
+input[type="submit" i],
+a {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 0;
+  color: $grey;
+  border-bottom: none;
+  text-decoration: none;
+}
+
+::placeholder {
+  color: gray;
+}
+
 // navigation
 nav {
   display: flex;
@@ -51,11 +83,6 @@ nav {
     text-decoration: none;
     color: $white;
   }
-  // ul {
-  //   display: flex;
-  //   justify-content: flex-start;
-  //   list-style-type: none;
-  // }
 
   li {
     margin: 0;
@@ -84,50 +111,12 @@ nav {
   }
 }
 
-// Forms
-form {
-  display: flex;
-  flex-direction: column;
-  // gap: 5px;
-}
-
-input {
-  display: flex;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid $light-grey;
-  width: 100%;
-  padding: 15px 0;
-  color: $black;
-  background-color: transparent;
-}
-
-input[type="submit" i], a {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 10px 0;
-  color: $grey;
-  border-bottom: none;
-  text-decoration: none;
-}
-
-input[type="submit" i]:hover,
-a:hover {
-  background-color: $blue;
-  color: $white;
-}
-
-::placeholder {
-  color: gray;
-}
-
 // Containers
 .container {
   display: grid;
   grid-template-columns: 75% 25%;
   box-shadow: 0 0 5px $grey;
-  padding: 5px ;
+  padding: 5px;
   margin-bottom: 15px;
 }
 
@@ -144,11 +133,9 @@ a:hover {
 }
 
 .container-left-second {
-display: flex;
-flex-direction: column;
-// align-items: self-end;
-justify-content: flex-start;
-// padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .icon {
@@ -170,7 +157,7 @@ justify-content: flex-start;
   text-decoration: none;
 }
 
-.new-buttons{
+.new-buttons {
   display: flex;
   align-self: center;
   justify-content: center;
@@ -184,4 +171,11 @@ justify-content: flex-start;
 
 .display-none {
   display: none;
+}
+
+// Hovers
+input[type="submit" i]:hover,
+a:hover {
+  background-color: $blue;
+  color: $white;
 }
