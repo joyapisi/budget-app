@@ -10,20 +10,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <% if user_signed_in? %>
-      <nav class="blue-navigation">
-        
-        <%= link_to '←', root_path, class: 'nav-buttons first'%>
-        
-        <h1><%= link_to @page_name, request.path.split('/').reject(&:empty?).last %></h1>
-        
-        <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-buttons second' %>
-        <% else %>
-        <%= button_to 'Login', new_user_session_path, class: 'nav-buttons second display-none' %>
-        <% end %>
-      </nav>
-      
+  <body>      
     <%= yield %>
   </body>
 </html>

@@ -91,6 +91,7 @@ form {
     padding: 5px 0;
   }
 }
+
 // navigation
 nav {
   display: flex;
@@ -100,6 +101,10 @@ nav {
   background-color: $blue;
   padding: 0 20px;
   margin: -20px -30px;
+
+  h1 {
+    color: $white;
+  }
 
   h1 a {
     text-decoration: none;
@@ -155,6 +160,7 @@ nav {
   display: grid;
   grid-template-columns: 40% 50%;
   gap: 10px;
+  color: $grey;
 }
 
 .container-right {
@@ -168,7 +174,6 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  color: $grey;
   font-weight: 10;
 }
 
@@ -195,8 +200,7 @@ nav {
   display: flex;
   align-self: center;
   justify-content: center;
-  padding: 10px;
-  // width: 100vh;
+  padding: 20px 10px;
   color: $white;
   background-color: $green;
   border-radius: 0.15rem;
@@ -234,8 +238,18 @@ a:focus {
 
 // Footer Buttons
 .footer-buttons {
-  // position: fixed;
+  position: fixed;
   bottom: 0;
   width: 100%;
-  margin-top: 15px;
+  margin: 15px 0 0 -30px;
+}
+
+.top-total-amount {
+  display: flex;
+  background-color: $white;
+  padding: 10px;
+  width: 115%;
+  margin-left: -30px;
+  justify-content: flex-end;
+  box-shadow: 0 5px 5px 0 $grey;
 }

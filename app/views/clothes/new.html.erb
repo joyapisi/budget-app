@@ -1,9 +1,18 @@
-<h1>New cloth</h1>
+<% if user_signed_in? %>
+  <nav class="blue-navigation">
+  <%= link_to '←', root_path, class: 'nav-buttons first'%>
+  <h1>New Cloth</h1>
+  <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-buttons second' %>
+  <% else %>
+  <%= button_to 'Login', new_user_session_path, class: 'nav-buttons second display-none' %>
+  <% end %>
+</nav>
 
+<br/>
 <%= render "form", cloth: @cloth, groups: @groups %>
 
 <br>
 
 <div>
-  <%= link_to "Back to clothes", group_clothes_path, class:"new-buttons" %>
+  <%= link_to "Back to clothes", group_clothes_path, class:"inner-buttons" %>
 </div>

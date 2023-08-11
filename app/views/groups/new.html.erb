@@ -1,9 +1,18 @@
-<h1>New group</h1>
+<% if user_signed_in? %>
+  <nav class="blue-navigation">
+  <%= link_to '←', root_path, class: 'nav-buttons first'%>
+  <h1>New Group</h1>
+  <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-buttons second' %>
+  <% else %>
+  <%= button_to 'Login', new_user_session_path, class: 'nav-buttons second display-none' %>
+  <% end %>
+</nav>
 
+<br/>
 <%= render "form", group: @group %>
 
 <br>
 
 <div>
-  <%= link_to "Back to groups", groups_path %>
+  <%= link_to "Back to groups", groups_path, class:"inner-buttons" %>
 </div>

@@ -10,7 +10,10 @@ class ClothesController < ApplicationController
   end
 
   # GET /clothes/1 or /clothes/1.json
-  def show; end
+  def show
+    @group = Group.find(params[:group_id]) 
+    @cloth = Cloth.find(params[:id])
+  end
 
   # GET /clothes/new
   def new
@@ -53,7 +56,7 @@ class ClothesController < ApplicationController
     @cloth.destroy
 
     respond_to do |format|
-      format.html { redirect_to clothes_url, notice: 'cloth was successfully destroyed.' }
+      format.html { redirect_to group_clothes_path(group_id: @cloth.group_id), notice: 'cloth was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
