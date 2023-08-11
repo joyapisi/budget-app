@@ -40,9 +40,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-- [ ] **Adding Animations**
-- [ ] **Import Data from CSV**
-- [ ] **Generate report**
+- [ ] **RSpec Tests**
+- [ ] **Sass**
+- [ ] **Mobile web app**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
