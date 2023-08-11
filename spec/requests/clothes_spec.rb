@@ -11,7 +11,7 @@ RSpec.describe ClothesController, type: :request do
     end
 
     it 'renders the new page' do
-      sign_in @joy  
+      sign_in @joy
 
       valid_cloth_attributes = {
         name: 'New Cloth',

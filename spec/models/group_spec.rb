@@ -4,8 +4,8 @@ require 'faker'
 RSpec.describe Group, type: :model do
   before(:each) do
     @joy = User.create!(name: Faker::Name.unique.name,
-                         email: Faker::Internet.email,
-                         password: 'joy123', password_confirmation: 'joy123')
+                        email: Faker::Internet.email,
+                        password: 'joy123', password_confirmation: 'joy123')
   end
 
   subject { Group.new(name: 'Tops', icon: 'some icon', user: @joy) }

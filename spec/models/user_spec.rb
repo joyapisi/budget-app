@@ -28,7 +28,7 @@ RSpec.describe User, type: :model do
 
   context 'devise modules' do
     subject { User.new(valid_attributes) }
-    
+
     it { should validate_confirmation_of(:password) }
   end
 end

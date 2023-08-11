@@ -23,7 +23,7 @@ RSpec.describe 'Groups', type: :request do
 
       it 'should render the Groups page' do
         expect(response).to have_http_status(302)
-        expect(response.body).to include('You are being') 
+        expect(response.body).to include('You are being')
       end
 
       it 'should render the group names' do
@@ -32,7 +32,7 @@ RSpec.describe 'Groups', type: :request do
       end
 
       it 'should render the add new group buttons' do
-        expect(response.body).to include('You are being') 
+        expect(response.body).to include('You are being')
       end
 
       it 'should render the new group page' do

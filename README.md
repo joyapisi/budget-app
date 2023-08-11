@@ -29,8 +29,7 @@
 
 # 📖 Budget App <a name="about-project"></a>
 
-**Budget App** is a clever app that lets you track of your items in a ballance Sheet
-
+**Budget App** is a mobile web application where you can manage your budget: you can see how much money you spent and on what.
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -55,9 +54,9 @@
 
 <!-- Presentation -->
 
-## Video Presentation <a name="video"></a>
+## 🎥 Video Presentation <a name="video"></a>
 
--[Presentation Video](https:)
+-[Presentation Video](https://www.loom.com/share/c45771dd78824ad1afdf601ea3a0fbad?sid=86866998-a70c-4ef0-95b4-210712835049)
 
 <!-- GETTING STARTED -->
 
