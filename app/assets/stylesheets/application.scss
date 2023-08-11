@@ -13,7 +13,10 @@
  *= require_tree .
  *= require_self
  */
-@import url('https://fonts.googleapis.com/css2?family=Figtree&family=Fjalla+One&display=swap');
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('./assets/fonts/ProximaNovaFont.otf') 
+}
 
 $black: #000;
 $light-grey : #dfdddd;
@@ -27,6 +30,7 @@ $mid-font: 12px;
 
 body {
   padding: 10px 20px;
+  font-family: 'Proxima Nova', sans-serif;
 }
 
 h1 {
