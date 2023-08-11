@@ -11,7 +11,7 @@ class ClothesController < ApplicationController
 
   # GET /clothes/1 or /clothes/1.json
   def show
-    @group = Group.find(params[:group_id]) 
+    @group = Group.find(params[:group_id])
     @cloth = Cloth.find(params[:id])
   end
 

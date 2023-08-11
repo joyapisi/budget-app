@@ -21,6 +21,11 @@
   src: url('./assets/fonts/ProximaNovaFont.otf');
 }
 
+@font-face {
+  font-family: 'Pacifico';
+  src: url('./assets/fonts/Pacifico.ttf');
+}
+
 $black: #000;
 $light-grey : #dfdddd;
 $grey:  #a4aab0;
@@ -224,16 +229,13 @@ a:focus {
 .landing-page {
   display: grid;
   grid-template-rows: 20% 20%;
-  margin-top: 30%;
-  gap: 100px;
   text-align: center;
   align-content: flex-end;
 }
 
 .landing-page h1 {
-  display: flex;
-  align-items: flex-end;
   font-family: 'Pacifico', sans-serif;
+  font-weight: 100;
 }
 
 // Footer Buttons
