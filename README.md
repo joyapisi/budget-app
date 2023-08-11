@@ -50,7 +50,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo](https://)
+- [Live Demo](https://my-lifestyle-budget-app.onrender.com/landing_page)
 
 <!-- Presentation -->
 
