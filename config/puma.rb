@@ -39,5 +39,9 @@ workers ENV.fetch("WEB_CONCURRENCY") { 2 }
 #
 preload_app!
 
+# Use only threads (no workers)
+workers 0
+threads ENV.fetch("RAILS_MIN_THREADS") { 1 }, ENV.fetch("RAILS_MAX_THREADS") { 5 }
+
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
