@@ -1,15 +1,18 @@
+<br/>
 <p style="color: green"><%= notice %></p>
-
 <br/>
 
-<div id="groups">
-  <% @groups.each do |group| %>
-    <%= link_to group_path(group), class: "group-link" do %>
-      <%= render group %>
+<div class="main-container">
+  <div id="groups">
+    <% @groups.each do |group| %>
+      <%= link_to group_path(group), class: "group-link" do %>
+        <%= render group %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+  
+  <div class="footer-buttons">
+    <%= link_to "New group", new_group_path, class:"new-buttons"%>
+    <%= link_to "View Clothes", group_clothes_path(:group_id), class:"inner-buttons"%>
+  </div>
 </div>
-
-
-<%= link_to "New group", new_group_path, class:"new-buttons"%>
-<%= link_to "View Clothes", group_clothes_path(:group_id), class:"inner-buttons"%>
