@@ -1,0 +1,27 @@
+<% if user_signed_in? %>
+  <nav class="blue-navigation">
+  <%= link_to '←', root_path, class: 'nav-buttons first'%>
+  <h1>Groups</h1>
+  <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-buttons second' %>
+  <% else %>
+  <%= button_to 'Login', new_user_session_path, class: 'nav-buttons second display-none' %>
+  <% end %>
+</nav>
+
+<br/>
+<p style="color: green"><%= notice %></p>
+<br/>
+
+<div class="main-container">
+  <div id="groups">
+    <% @groups.each do |group| %>
+      <%= link_to group_path(group), class: "group-link" do %>
+        <%= render group %>
+      <% end %>
+    <% end %>
+  </div>
+  
+  <div class="footer-buttons">
+    <%= link_to "New group", new_group_path, class:"new-buttons"%>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div id="<%= dom_id group %>" class="container">
+  <div class="container-left">
+    <div class="container-left-first">
+      <img class="icon" src=<%= group.icon %> alt=<%= group.name %> >
+    </div>
+    <div class="container-left-second">
+      <p><%= group.name.capitalize %></p>
+      <p id="date"><%= group.created_at.strftime('%d/%b/%Y') %> </p>
+    </div>
+  </div>
+
+  <div class="container-right">
+
+    <p>
+      $ <%= Cloth.where(group_id:group.id).map {|item| item.amount.to_i}.sum %>
+    </p>
+  </div>
+</div>
