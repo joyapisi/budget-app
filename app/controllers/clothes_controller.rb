@@ -32,7 +32,7 @@ class ClothesController < ApplicationController
     @cloth.group_id = params[:cloth][:group_id]
 
     if @cloth.save
-      redirect_to group_clothes_path(@cloth.group_id)
+      redirect_to group_path(@cloth.group_id)
     else
       redirect_to group_clothes_path(@cloth.group_id), alert: 'Please select at least one group.'
     end

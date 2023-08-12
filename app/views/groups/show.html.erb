@@ -1,9 +1,38 @@
+<% if user_signed_in? %>
+  <nav class="blue-navigation">
+  <%= link_to '←', root_path, class: 'nav-buttons first'%>
+  <h1>Transactions</h1>
+  <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-buttons second' %>
+  <% else %>
+  <%= button_to 'Login', new_user_session_path, class: 'nav-buttons second display-none' %>
+  <% end %>
+</nav>
+
 <p style="color: green"><%= notice %></p>
+<br/>
+
 <br/>
 <%= render @group %>
 
-<div class="footer-buttons">
-  <%= link_to "Back to groups", groups_path, class:"inner-buttons" %>
+<div class="main-container">
+  <% if @clothes.any? %>
+      <% @clothes.each do |cloth| %>
+        <div class="container">
+          <div class="container-left">
+            <p><%= cloth.name %></p>
+          </div>
+          
+          <div class="container-right">
+            <p>$ <%= cloth.amount %></p>
+          </div>
+        </div>
+      <% end %>  
+  <% else %>
+    <p>No clothes found in this group.</p>
+  <% end %>
+  </div>
+</div>
 
-  <%= button_to "Destroy this group", @group, method: :delete, class:"new-buttons" %>
+<div class="footer-buttons">
+  <%= link_to "New transaction", new_group_cloth_path(group_id: @group_id, group_clothes: @clothes), class: "new-buttons" %>
 </div>

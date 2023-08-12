@@ -27,6 +27,8 @@
 
 <div class="footer-buttons">
   <%= link_to "New transaction", new_group_cloth_path(group_id: @group_id), class: "new-buttons" %>
-</div>
+  <%= link_to "Back to groups", groups_path, class:"inner-buttons" %>
+  <%= button_to "Destroy this group", @group, method: :delete, class:"new-buttons" %>
+  </div>
 
 </div>

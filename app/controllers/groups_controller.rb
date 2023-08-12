@@ -11,6 +11,8 @@ class GroupsController < ApplicationController
   def show
     if current_user.id.to_i == Group.find(params[:id]).user_id.to_i
       @group = Group.find(params[:id])
+      @clothes = Cloth.where(group_id: @group.id).order('created_at DESC')
+      @group_id = @group.id
     else
       redirect_to '/'
     end
